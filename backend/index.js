@@ -22,10 +22,7 @@ console.log(__dirname);
 
 const app = express();
 app.use(express.json());
-// app.use(cors({
-//   origin: "http://localhost:5173", // Your frontend URL
-//   credentials: true
-// }));
+
 app.use(cookieParser())
 
 const PORT = process.env.PORT || 5000; // Use Render's port in production
@@ -248,9 +245,10 @@ app.get("/api/spacex/launches", async (req, res) => {
   }
 });
 
-app.use(express.static(path.join(__dirname,'/frontend/dist')));
-app.use('*',(req,res)=>{
-  res.sendFile(path.join(__dirname,'/frontend/dist/index.html'))
+app.use(express.static(path.join(__dirname, '..', 'frontend', 'dist')));
+
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, '..', 'frontend', 'dist', 'index.html'));
 });
 
 app.listen(PORT, () => {
