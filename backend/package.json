@@ -8,7 +8,7 @@
     "build": "npm install --include=dev && (cd ../frontend && npm install --include=dev && npm run build)",
     "start": "node index.js",
     "dev": "nodemon index.js"
-  }
+  },
 
   "dependencies": {
     "bcryptjs": "^3.0.2",
