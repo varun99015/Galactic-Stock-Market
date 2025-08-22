@@ -43,7 +43,7 @@ function Signup() {
         setIsLoading(true);
 
         try {
-            const result = await axios.post('http://localhost:5000/api/signup', { 
+            const result = await axios.post('/api/signup', { 
                 name, 
                 email, 
                 password 
@@ -262,3 +262,4 @@ function Signup() {
 }
 
 export default Signup;
+
