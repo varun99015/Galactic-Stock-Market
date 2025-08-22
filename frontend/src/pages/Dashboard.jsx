@@ -13,7 +13,7 @@ const Dashboard = () => {
     const fetchPortfolio = async () => {
       try {
         setIsLoading(true);
-        const res = await axios.get('http://localhost:5000/api/portfolio', {
+        const res = await axios.get('/api/portfolio', {
           withCredentials: true, // This is the axios equivalent of credentials: 'include'
         });
         setPortfolioData(res.data);
@@ -129,3 +129,4 @@ const Dashboard = () => {
 };
 
 export default Dashboard;
+
