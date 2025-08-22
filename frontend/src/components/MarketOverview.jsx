@@ -14,7 +14,7 @@ const MarketOverview = () => {
   const fetchMarketData = async () => {
     try {
       setIsLoading(true);
-      const response = await axios.get('http://localhost:5000/api/stocks/overview');
+      const response = await axios.get('api/stocks/overview');
       
       if (response.data && response.data.length > 0) {
         // Calculate changePercent for each stock
@@ -216,5 +216,6 @@ const MarketOverview = () => {
     </div>
   );
 };
+
 
 export default MarketOverview;
