@@ -1,0 +1,14 @@
+{
+  "name": "galactic-stock-market",
+  "version": "1.0.0",
+  "scripts": {
+    "build": "npm install && cd frontend && npm install && npm run build",
+    "install-deps": "npm install && cd frontend && npm install",
+    "dev": "concurrently \"npm run server\" \"npm run client\"",
+    "server": "cd backend && npm run dev",
+    "client": "cd frontend && npm run dev"
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  }
+}
