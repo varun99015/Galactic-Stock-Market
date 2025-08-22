@@ -3,11 +3,10 @@
   "version": "1.0.0",
   "main": "index.js",
   "type": "module",
-  "scripts": {
+"scripts": {
   "start": "node index.js",
   "dev": "nodemon index.js",
-  "build:frontend": "npm install --prefix ../frontend && npm run build --prefix ../frontend",
-  "build": "npm install && npm run build:frontend"
+  "build": "npm install && cd ../frontend && npm install && npm run build"
 },
   "dependencies": {
     "bcryptjs": "^3.0.2",
