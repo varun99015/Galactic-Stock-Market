@@ -3,11 +3,13 @@
   "version": "1.0.0",
   "main": "index.js",
   "type": "module",
+
   "scripts": {
+    "build": "npm install --include=dev && (cd ../frontend && npm install --include=dev && npm run build)",
     "start": "node index.js",
-    "dev": "nodemon index.js",
-    "build": "npm install && (cd ../frontend && npm install && npm run build)"
-  },
+    "dev": "nodemon index.js"
+  }
+
   "dependencies": {
     "bcryptjs": "^3.0.2",
     "cookie-parser": "^1.4.7",
