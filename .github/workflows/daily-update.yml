@@ -1,0 +1,29 @@
+name: Run Daily Stock Simulation
+
+on:
+  schedule:
+    # Runs at 18:00 UTC every day.
+    # This is 11:30 PM in India (IST).
+    - cron: '30 18 * * *'
+  workflow_dispatch: # This allows you to run it manually from the Actions tab
+
+jobs:
+  update-database:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository code
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install dependencies in the backend folder
+        run: npm install
+        working-directory: ./backend # Assuming your package.json is in the backend folder
+
+      - name: Run the daily update script
+        env:
+          MONGO_URI: ${{ secrets.MONGO_URI }} # Use the secret you created
+        run: node backend/utils/dailyupdate.js # The correct path to your script
