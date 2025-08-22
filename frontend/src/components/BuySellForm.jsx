@@ -38,7 +38,7 @@ function BuySellForm({ symbol }) {
     playSound();
 
     try {
-      const res = await fetch(`http://localhost:5000/api/transactions/${type}`, {
+      const res = await fetch(`/api/transactions/${type}`, {
         method: "POST",
         credentials: 'include',
         headers: {
@@ -156,3 +156,4 @@ function BuySellForm({ symbol }) {
   );
 }
 export default BuySellForm;
+
