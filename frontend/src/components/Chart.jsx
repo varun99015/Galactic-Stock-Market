@@ -7,63 +7,7 @@ const Chart = ({ symbol }) => {
   const [data, setData] = useState([]);
   const [interval, setInterval] = useState("5y");
   const [isLoading, setIsLoading] = useState(true);
-
-// useEffect(() => {
-//   const fetchData = async () => {
-//     if (!symbol) return; // Don't fetch if no symbol is provided
-
-//     // 1. Create a unique cache key for each stock and interval
-//     const cacheKey = `chartData-${symbol}-${interval}`;
-//     const cacheDuration = 15 * 60 * 1000; // Cache for 15 minutes
-
-//     try {
-//       // 2. Check the browser's cache first
-//       const cachedItem = localStorage.getItem(cacheKey);
-//       if (cachedItem) {
-//         const { timestamp, data } = JSON.parse(cachedItem);
-        
-//         // 3. If the cached data is fresh, use it and skip the API call
-//         if (Date.now() - timestamp < cacheDuration) {
-//           console.log(`✅ Loading ${symbol} (${interval}) chart from cache.`);
-//           const formattedCachedData = data.map(d => ({ ...d, date: new Date(d.date) }));
-//           setData(formattedCachedData);
-//           setIsLoading(false); // Make sure to update loading state
-//           return; // Exit the function
-//         }
-//       }
-
-//       // 4. If no fresh cache, fetch from the API
-//       console.log(`... Fetching new ${symbol} (${interval}) chart data from API.`);
-//       setIsLoading(true);
-      
-//       // ✅ FIX: Use the correct, relative API path
-//       //const res = await axios.get(`/stocks/${symbol}?interval=${interval}`);
-//       const res = await axios.get(`http://localhost:5000/api/stocks/data/${symbol}?interval=${interval}`);
-//       const formattedData = res.data.map((d) => ({
-//         date: new Date(d.date),
-//         price: d.price,
-//       }));
-
-//       // 5. Save the new data to the cache for next time
-//       const newCacheItem = {
-//         timestamp: Date.now(),
-//         data: formattedData,
-//       };
-//       localStorage.setItem(cacheKey, JSON.stringify(newCacheItem));
-      
-//       setData(formattedData);
-
-//     } catch (err) {
-//       console.error("Error fetching chart data:", err);
-//       setData([]); // Clear data on error to avoid showing a stale chart
-//     } finally {
-//       setIsLoading(false);
-//     }
-//   };
-
-//   fetchData();
-// }, [symbol, interval]); 
-
+  
 useEffect(() => {
   const fetchData = async () => {
     if (!symbol) return;
@@ -100,7 +44,7 @@ useEffect(() => {
       console.log(`... Fetching new ${symbol} (${interval}) chart data from API.`);
       setIsLoading(true);
       
-      const res = await axios.get(`/api/stocks/${symbol}?interval=${interval}`);
+      const res = await axios.get(`/api/stocks/data/${symbol}?interval=${interval}`);
       
       const formattedData = res.data.map((d) => ({
         date: new Date(d.date),
@@ -402,3 +346,4 @@ svg.selectAll(".data-point")
 };
 
 export default Chart;
+
