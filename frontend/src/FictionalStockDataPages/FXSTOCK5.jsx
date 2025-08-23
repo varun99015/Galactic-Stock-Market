@@ -22,7 +22,7 @@ const FXSTOCK5 = ({ stock }) => {
     const fetchStockData = async () => {
       try {
         setIsLoading(true);
-        const response = await axios.get(`http://localhost:5000/api/stocks/data/${stock.symbol}`);
+        const response = await axios.get(`/api/stocks/data/${stock.symbol}`);
         
         if (response.data && response.data.length > 0) {
           // Store the full historical data
@@ -335,3 +335,4 @@ const FXSTOCK5 = ({ stock }) => {
 };
 
 export default FXSTOCK5;
+
