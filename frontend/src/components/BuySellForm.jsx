@@ -90,20 +90,26 @@ function BuySellForm({ symbol }) {
     <div className="space-trading-interface p-4 md:p-6">
       {/* Quantum Input Group - Mobile Responsive */}
       <div className="quantum-input-group relative mb-6">
-        <input
-          type="number"
-          value={quantity}
-          min={1}
-          max={10000}
-          onChange={(e) => setQuantity(Math.max(1, parseInt(e.target.value)))}
-          className="stellar-input w-full px-4 py-3 bg-gray-800 border border-cyan-500 rounded-lg text-cyan-300 font-mono text-sm md:text-base focus:outline-none focus:ring-2 focus:ring-cyan-500"
-          placeholder="QUANTUM UNITS"
-          disabled={isLoading}
-        />
-        <span className="input-unit absolute right-3 top-1/2 transform -translate-y-1/2 text-cyan-400 text-sm font-mono">
-          QTY
-        </span>
-      </div>
+  <input
+    type="number"
+    id="quantity-input" // <-- FIX: Add a unique ID
+    value={quantity}
+    min={1}
+    max={10000}
+    onChange={(e) => setQuantity(Math.max(1, parseInt(e.target.value)))}
+    className="stellar-input w-full px-4 py-3 bg-gray-800 border border-cyan-500 rounded-lg text-cyan-300 font-mono text-sm md:text-base focus:outline-none focus:ring-2 focus:ring-cyan-500"
+    placeholder="QUANTUM UNITS"
+    disabled={isLoading}
+  />
+  
+  {/* FIX: Change <span> to <label> and connect it with 'htmlFor' */}
+  <label
+    htmlFor="quantity-input" 
+    className="input-unit absolute right-3 top-1/2 transform -translate-y-1/2 text-cyan-400 text-sm font-mono cursor-pointer" // <-- Added cursor-pointer
+  >
+    QTY
+  </label>
+</div>
 
       {/* Tactical Buttons - Stack on mobile, side-by-side on larger screens */}
       <div className="tactical-buttons grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-4 mb-6">
@@ -169,5 +175,6 @@ function BuySellForm({ symbol }) {
     </div>
   );
 }
+
 
 export default BuySellForm;
