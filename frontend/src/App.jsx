@@ -17,6 +17,7 @@ import Footer from "./components/Footer";
 import NavScan from "./components/NavScan";
 import Settings from "./components/Settings";
 import MarketOverview from "./components/MarketOverview";
+import Developer from "./pages/Developer";
 
 const App = () => {
   return (
@@ -40,9 +41,11 @@ const App = () => {
         <Route path="scan" element={<NavScan/>}/>
         <Route path="settings" element={<Settings/>}/>
         <Route path="marketoverview" element={<MarketOverview/>}/>
+        <Route path = "/developer" element ={<Developer/>}/>
       </Routes>
     </Router>
   );
 };
 
 export default App;
+
