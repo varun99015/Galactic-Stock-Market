@@ -60,9 +60,9 @@ const Footer = () => {
                 </Link>
               </li>
               <li>
-                <Link to="/stocks" className="flex items-center text-gray-400 hover:text-yellow-300 font-mono text-sm transition-all">
+                <Link to="/developer" className="flex items-center text-gray-400 hover:text-yellow-300 font-mono text-sm transition-all">
                   <Database className="mr-2 h-4 w-4" />
-                  Stock Network
+                  Developer Section
                 </Link>
               </li>
               <li>
@@ -155,5 +155,6 @@ const Footer = () => {
     </footer>
   );
 };
+
 
 export default Footer;
