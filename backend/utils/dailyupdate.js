@@ -3,7 +3,8 @@ import dotenv from 'dotenv';
 
 dotenv.config();
 
-const MONGO_URI = "mongodb+srv://varu99015:varun9901@cluster0.na2mkr0.mongodb.net/StockAppData";
+const MONGO_URI = process.env.MONGO_URI;
+
 
 // --- Customize Stock Behavior Here ---
 // dailyUpdateSimulation.js (or wherever you keep profiles)
