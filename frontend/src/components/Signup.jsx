@@ -56,7 +56,7 @@ function Signup() {
                 setPassword("");
                 navigate('/login'); 
             } else {
-                alert(`🔒 REGISTRATION FAILED: ${result.data.message}`);
+                alert(`🔒 REGISTRATION STATUS: ${result.data.message}`);
             }
         } catch (err) {
             console.error("Quantum registration error:", err);
@@ -262,3 +262,4 @@ function Signup() {
 }
 
 export default Signup;
+
